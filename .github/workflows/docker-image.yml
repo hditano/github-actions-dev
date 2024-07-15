@@ -1,0 +1,13 @@
+name: Release Express with Docker image
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag myExpress:$(date)
